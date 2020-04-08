@@ -5,10 +5,7 @@ class Basket:
     def __init__(self):
         self.__shoppingBasket = {}
     def add_item(self, sku, qty):
-        if sku not in self.__shoppingBasket:
-            self.__shoppingBasket[sku]=qty
-        else:
-            self.__shoppingBasket[sku]=self.__shoppingBasket[sku]+qty
+        self.__shoppingBasket[sku]=self.getBasket(sku)+qty
     def getBasket(self, sku):
         if sku not in self.__shoppingBasket:
             return 0
