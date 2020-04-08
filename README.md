@@ -9,7 +9,6 @@ class Basket:
             self.__shoppingBasket[sku]=qty
         else:
             self.__shoppingBasket[sku]=self.__shoppingBasket[sku]+qty
-            
     def getBasket(self, sku):
         if sku not in self.__shoppingBasket:
             return 0
