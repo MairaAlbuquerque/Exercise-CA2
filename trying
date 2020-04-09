@@ -1,29 +1,37 @@
-products = {'desc': {'suitcase', 't-shirt', 'trousers'}
-            'seller': {'Paul', 'Maira', 'Mayank'}
-            'price':{'suitace':50, 't-shirt':2, 'trousers':15} # Price based in EURO
-            'curr': {'EUR':1, 'USD':1.23, 'BRL': 5.4}}
+class Products:
+    def __init__(self, description, seller, price, curr):
+        self.description = description
+        self.seller = seller
+        self.price = price
+        self.curr = curr
+        
+prices = {'EUR':1, 'USD':1.23, 'BRL':5.6}
 
 class Basket:
     def __init__(self):
         self.__shoppingBasket = {}
+        
     def add_item(self, sku, qty):
-        self.__shoppingBasket[sku]=self.getBasket(sku)+qty
+        self.__shoppingBasket[sku]=self.getBalance_items(sku)+qty
+        
     def remove_item(self, sku, qty):
-        self.__shoppingBasket[sku]=self.getBasket(sku)-qty
-    def getBasket(self, sku):
+        self.__shoppingBasket[sku]=self.getBalance_items(sku)-qty
+        
+    def getBalance_items(self, sku):
         if sku not in self.__shoppingBasket:
             return 0
         return self.__shoppingBasket[sku]
-    def value(self):
-        total = 0
-        for k,v in self.__shoppingBasket.items():
-            total+=v*products['price']
-            return total
+    
+    def getValue(self):
+        total = 0 
+        for sku in self.__shoppingBasket:
+            total += sku.price + sku*qty
+        return total
     
         
-p=Basket()
-p.add_item('suitcase', 1)
+#p=Basket()
+#p.add_item('suitcase', 1)
 
-p.getBasket('suitcase')
+#p.getBasket('suitcase')
 
 p.getBasket('t-shirt')
