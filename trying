@@ -1,0 +1,24 @@
+price = {'EUR':1, 'USD': 1.23, 'BLR': 5.6}
+
+class Basket:
+    def __init__(self):
+        self.__shoppingBasket = {}
+   
+    def add_item(self, desc, seller, price, qty):
+        self.__shoppingBasket[desc]=self.getBasket(desc)+qty
+        self.__seller = seller
+        self.__price = price
+    
+    def remove_item(self, desc, seller, price, qty):
+        self.__shoppingBasket[desc]=self.getBasket(desc)-qty
+    
+    def getBasket(self, desc):
+        if desc not in self.__shoppingBasket:
+            return 0
+        return self.__shoppingBasket[desc]
+    
+    def value(self):
+        total = 0
+        for k, v in self.__shoppingBasket.items():
+            total += v*price[k]
+            return total
