@@ -5,7 +5,14 @@ class Products:
         self.price = price
         self.curr = curr
         
-prices = {'EUR':1, 'USD':1.23, 'BRL':5.6}
+Products = {a:('suitcase', 'paul', 65, 'EUR'),
+            b:('suitcase', 'maira', 80, 'EUR'),
+            c:('earphones', 'wayne', 10, 'EUR'),
+            d:('earphones', 'paul', 8, 'USD'),
+            e: ('jeans', 'maira', 5, 'CAD'}
+            
+        
+prices = {'EUR':1, 'USD':1.23, 'CAD':1.56}
 
 class Basket:
     def __init__(self):
@@ -22,11 +29,10 @@ class Basket:
             return 0
         return self.__shoppingBasket[sku]
     
-    def getValue(self):
-        total = 0 
-        for sku in self.__shoppingBasket:
-            total += sku.price + sku*qty
-        return total
+    def getValue(self, sku): 
+        if sku not in self.__shoppingBasket:
+            return 0            
+        sku.price*self.__shoppingBasket[sku]
     
         
 #p=Basket()
