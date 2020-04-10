@@ -29,7 +29,7 @@ class Basket:
             return 0
         return self.__shoppingBasket[sku]
     
-    def getValue(self, sku): 
+    def getValue(self, sku):    #not multiplies by prices(rates)
         if sku not in self.__shoppingBasket:
             return 0            
         sku.price*self.__shoppingBasket[sku]
