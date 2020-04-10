@@ -35,9 +35,3 @@ class Basket:
         sku.price*self.__shoppingBasket[sku]
     
         
-#p=Basket()
-#p.add_item('suitcase', 1)
-
-#p.getBasket('suitcase')
-
-p.getBasket('t-shirt')
