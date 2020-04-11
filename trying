@@ -4,15 +4,9 @@ class Products:
         self.seller = seller
         self.price = price
         self.curr = curr
-        
-Products = {a:('suitcase', 'paul', 65, 'EUR'),
-            b:('suitcase', 'maira', 80, 'EUR'),
-            c:('earphones', 'wayne', 10, 'EUR'),
-            d:('earphones', 'paul', 8, 'USD'),
-            e: ('jeans', 'maira', 5, 'CAD'}
             
         
-prices = {'EUR':1, 'USD':1.23, 'CAD':1.56}
+prices = {1:"EUR", 1.23:"USD", 1.56:"CAD"}
 
 class Basket:
     def __init__(self):
@@ -31,7 +25,23 @@ class Basket:
     
     def getValue(self, sku):    #not multiplies by prices(rates)
         if sku not in self.__shoppingBasket:
-            return 0            
-        sku.price*self.__shoppingBasket[sku]
-    
+            return 0
+        return self.__shoppingBasket[sku]*test.price[sku]
         
+        
+#Testing:
+       
+test=Products()
+Product1=test.init("suitcase","Arnotts",23,"EUR")
+Product2=test.init("pillows","Arnotts",34,"EUR")
+Product3=test.init("duvet", "Dunnes", 30, "EUR")
+        
+MyCase= Basket()
+MyCase.add_item("suitcase", 1)
+MyCase.add_item("pillows", 2)
+MyCase.add_item("duvet", 1)
+
+print(MyCase.getBalance_items("suitcase"))
+
+print(MyCase.getValue("suitcase"))
+print(MyCase.getValue("pillows"))
