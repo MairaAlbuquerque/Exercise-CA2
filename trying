@@ -35,7 +35,8 @@ class Basket:
             if product.description == sku:
                 return self.__shoppingBasket[sku]*product.price
         
-        
+
+---------------------------------------------------------------------------------------------------------------------------------------
 #Testing:
        
 product1=Product("suitcase","Arnotts",23,"EUR")
