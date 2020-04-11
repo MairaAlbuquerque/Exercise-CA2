@@ -31,10 +31,11 @@ class Basket:
         
 #Testing:
        
-test=Products()
+Products = [Product1, Product2, Product3, Product4]
 Product1=test.init("suitcase","Arnotts",23,"EUR")
 Product2=test.init("pillows","Arnotts",34,"EUR")
 Product3=test.init("duvet", "Dunnes", 30, "EUR")
+Product4=test.init("coverduvet", "Amazon", 20, "USD")
         
 MyCase= Basket()
 MyCase.add_item("suitcase", 1)
