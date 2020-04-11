@@ -14,28 +14,38 @@ class Basket:
         
     def add_item(self, sku, qty):
         self.__shoppingBasket[sku]=self.getBalance_items(sku)+qty
+        print(self.__shoppingBasket)
         
     def remove_item(self, sku, qty):
-        self.__shoppingBasket[sku]=self.getBalance_items(sku)-qty
+        try:
+            self.__shoppingBasket[sku]=self.getBalance_items(sku)-qty
+        except KeyError:
+            print("Key Not Found")
         
     def getBalance_items(self, sku):
         if sku not in self.__shoppingBasket:
             return 0
         return self.__shoppingBasket[sku]
     
-    def getValue(self, sku):    #not multiplies by prices(rates)
+    def getValue(self, sku, products):    #not multiplies by prices(rates) yet
         if sku not in self.__shoppingBasket:
             return 0
-        return self.__shoppingBasket[sku]*test.price[sku]
+        
+        for product in products:
+            if product.description == sku:
+                return self.__shoppingBasket[sku]*product.price
         
         
 #Testing:
        
-Products = [Product1, Product2, Product3, Product4]
 Product1=test.init("suitcase","Arnotts",23,"EUR")
 Product2=test.init("pillows","Arnotts",34,"EUR")
 Product3=test.init("duvet", "Dunnes", 30, "EUR")
 Product4=test.init("coverduvet", "Amazon", 20, "USD")
+Products = [Product1, Product2, Product3, Product4]
+
+for sku in products:
+    print(sku.description +", " + sku.seller + ", " + str(sku.price) + ", " + sku.curr )
         
 MyCase= Basket()
 MyCase.add_item("suitcase", 1)
@@ -44,5 +54,5 @@ MyCase.add_item("duvet", 1)
 
 print(MyCase.getBalance_items("suitcase"))
 
-print(MyCase.getValue("suitcase"))
-print(MyCase.getValue("pillows"))
+print(MyCase.getValue("suitcase", products))
+print(MyCase.getValue("pillows", products))
