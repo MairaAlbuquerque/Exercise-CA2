@@ -38,11 +38,12 @@ class Basket:
         
 #Testing:
        
-Product1=test.init("suitcase","Arnotts",23,"EUR")
-Product2=test.init("pillows","Arnotts",34,"EUR")
-Product3=test.init("duvet", "Dunnes", 30, "EUR")
-Product4=test.init("coverduvet", "Amazon", 20, "USD")
-Products = [Product1, Product2, Product3, Product4]
+product1=Product("suitcase","Arnotts",23,"EUR")
+product2=Product("pillows","Arnotts",34,"EUR")
+product3=Product("duvet", "Dunnes", 30, "EUR")
+product4=Product("coverduvet", "Amazon", 20, "USD")
+
+products=[product1, product2, product3, product4]
 
 for sku in products:
     print(sku.description +", " + sku.seller + ", " + str(sku.price) + ", " + sku.curr )
